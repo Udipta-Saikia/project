@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register & Login</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <link rel="stylesheet" href="style.css" />
+  <body>
+    <div class="video-container">
+      <video autoplay muted loop>
+        <source src="water.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div><button class="go-back-btn" onclick="goBack()">←</button></div>
+    <script>
+      function goBack() {
+        window.location.href = "index.html";
+      }
+    </script>
+
+    <div class="overlay"></div>
+
+    <!-- Register -->
+    <div class="container" id="signup">
+      <h1 class="form-title">Register</h1>
+      <form method="post" action="">
+        <div id="signUpMessage" class="messageDiv" style="display: none"></div>
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" id="fName" placeholder="First Name" required />
+        </div>
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" id="lName" placeholder="Last Name" required />
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="rEmail" placeholder="Email" required />
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input
+            type="password"
+            id="rPassword"
+            placeholder="Password"
+            required
+          />
+          <i class="fas fa-eye toggle-password" toggle="#rPassword"></i>
+        </div>
+        <button class="btn" id="submitSignUp">Sign Up</button>
+      </form>
+      <div class="links">
+        <p>Already Have Account ?</p>
+        <button id="signInButton">Sign In</button>
+      </div>
+    </div>
+
+    <!-- Sign In -->
+    <div class="container" id="signIn">
+      <h1 class="form-title">Sign In</h1>
+      <form method="post" action="">
+        <div id="signInMessage" class="messageDiv" style="display: none"></div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="email" placeholder="Email" required />
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <i class="fas fa-eye toggle-password" toggle="#password"></i>
+        </div>
+        <p class="recover">
+          <a href="#" style="color: white">Recover Password</a>
+        </p>
+        <button class="btn" id="submitSignIn">Sign In</button>
+      </form>
+      <p class="or">----------or---------</p>
+      <div class="icons">
+        <i class="fab fa-google" id="googleSignIn"></i>
+      </div>
+      <div class="links">
+        <p>Don't have account yet?</p>
+        <button id="signUpButton">Sign Up</button>
+      </div>
+    </div>
+
+    <!-- Toggle Forms Script -->
+    <script>
+      const signUpDiv = document.getElementById("signup");
+      const signInDiv = document.getElementById("signIn");
+      const signUpBtn = document.getElementById("signUpButton");
+      const signInBtn = document.getElementById("signInButton");
+
+      signUpBtn.onclick = () => {
+        signUpDiv.style.display = "block";
+        signInDiv.style.display = "none";
+      };
+
+      signInBtn.onclick = () => {
+        signUpDiv.style.display = "none";
+        signInDiv.style.display = "block";
+      };
+    </script>
+
+    <!-- Toggle Password Visibility -->
+    <script>
+      document.querySelectorAll(".toggle-password").forEach((eyeIcon) => {
+        eyeIcon.addEventListener("click", () => {
+          const input = document.querySelector(eyeIcon.getAttribute("toggle"));
+          const type =
+            input.getAttribute("type") === "password" ? "text" : "password";
+          input.setAttribute("type", type);
+          eyeIcon.classList.toggle("fa-eye");
+          eyeIcon.classList.toggle("fa-eye-slash");
+        });
+      });
+    </script>
+
+    <!-- Firebase Auth -->
+    <script type="module" src="firebaseauth.js"></script>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Journal</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="land.css">
+  </head>
+  <body>
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline id="video-bg" poster="fallback.jpg">
+      <source src="water.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Header -->
+    <section id="header">
+      <h1 style="font-size: 4rem; margin-bottom: 15px">Route-Note</h1>
+      <h2 style="font-size: 1.8rem; font-weight: 400; margin-bottom: 10px">
+        Capture Your Journeys, One Pin At A Time
+      </h2>
+      <h4>Map Your Travels, Upload Photos, and Relive Memories</h4>
+    </section>
+
+    <!-- Start Button + Description -->
+    <section id="lg">
+      <button type="button" id="startBtn">Start Your Journal Now!</button>
+      <p class="description">
+        Welcome to your personal travel map — where each pin holds a memory.
+        Save your locations, describe your adventures, and upload photos to keep
+        every journey alive. Whether you're road-tripping, city-hopping, or
+        hiking mountains, this journal grows with you.
+      </p>
+    </section>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- App Preview Sections -->
+    <section class="preview-section">
+      <div class="preview-block">Map Interface Preview</div>
+      <div class="preview-block">Photo Upload Preview</div>
+      <div class="preview-block">Saved Locations Preview</div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div>© 2025 Travel Journal. All rights reserved.</div>
+      <div class="social-icons">
+        <a href="https://instagram.com/justsul" target="_blank">
+          <img src="instagram.svg" alt="Instagram" width="35" height="35" />
+        <a href="https://github.com/Udipta-Saikia/map-journal" target="_blank">
+            <img src="github.svg" alt="Instagram" width="35" height="35" />
+      </div>
+    </footer>
+
+    <!-- Script -->
+    <script>
+      window.addEventListener("load", () => {
+        document.body.classList.add("loaded");
+      });
+
+      const btn = document.getElementById("startBtn");
+      const loadingOverlay = document.getElementById("loadingOverlay");
+
+      btn.addEventListener("click", () => {
+        loadingOverlay.classList.add("show");
+        setTimeout(() => {
+          window.location.href = "login.html";
+        }, 1500);
+      });
+    </script>
+  </body>
+</html>

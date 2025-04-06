@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Travel Journal</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="journal.css" />
+  </head>
+  <body>
+    <!-- Background Video and Overlay -->
+    <div class="video-container">
+      <video autoplay muted loop>
+        <source src="water.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="overlay"></div>
+
+    <h1>Your Travel Journal</h1>
+
+    <div class="entry-container" id="journalEntries">
+      <!-- Entries will be inserted here by JS -->
+    </div>
+
+    <button id="goBackHome" class="back-button">Back to Home</button>
+
+    <script type="module" src="journal.js"></script>
+  </body>
+</html>
